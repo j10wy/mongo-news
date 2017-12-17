@@ -1,0 +1,38 @@
+{
+  "name": "mongo_news",
+  "version": "1.0.0",
+  "description": "Web application that lets users view and leave comments on the latest news.",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffreylowy/mongo-news.git"
+  },
+  "keywords": [
+    "mongo",
+    "mongoose",
+    "node",
+    "express",
+    "handlebars",
+    "cheerio",
+    "request",
+    "javascript",
+    "news"
+  ],
+  "author": "Jeffrey Lowy <jeffreylowy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeffreylowy/mongo-news/issues"
+  },
+  "homepage": "https://github.com/jeffreylowy/mongo-news#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.13.7",
+    "request": "^2.83.0"
+  }
+}
