@@ -1,0 +1,12 @@
+/* fix spacing issue for card comment icon  */
+div.card div.card-content span.card-title a.waves-effect.waves-dark.red.right i {
+	margin: 13px 1px;
+}
+
+.appclr_black {
+	background-color:#212121 !important;
+}
+
+.appclr_neon_green {
+	background-color: #b2ff59 !important;
+}
