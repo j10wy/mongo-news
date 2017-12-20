@@ -10,3 +10,12 @@ div.card div.card-content span.card-title a.waves-effect.waves-dark.red.right i 
 .appclr_neon_green {
 	background-color: #b2ff59 !important;
 }
+
+nav a.brand-logo img {
+	height: 50px;
+	margin-top: 7px;
+}
+
+.collection .collection-item.avatar p {
+	margin-top: 10px;
+}
