@@ -1,10 +1,11 @@
 /* fix spacing issue for card comment icon  */
+
 div.card div.card-content span.card-title a.waves-effect.waves-dark.red.right i {
 	margin: 13px 1px;
 }
 
 .appclr_black {
-	background-color:#212121 !important;
+	background-color: #212121 !important;
 }
 
 .appclr_neon_green {
@@ -16,6 +17,18 @@ nav a.brand-logo img {
 	margin-top: 7px;
 }
 
-.collection .collection-item.avatar p {
+div.collection div.collection-item.avatar p {
 	margin-top: 10px;
+}
+
+ul.tabs li.indicator {
+	background-color: black;
+}
+
+ul.tabs .tab a {
+	color: #263238;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+	color: black;
 }

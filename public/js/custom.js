@@ -14,4 +14,8 @@ $(document).ready(function () {
 		$(this).removeClass("pulse appclr_neon_green");
 	});
 
+	scrapeButton.on("click", function name(event) {
+		Materialize.toast('Fetching new stories!', 3000) 
+	});
+
 });
