@@ -4,6 +4,14 @@
 	div.card {
 		min-height: 530px;
 	}
+	div.card a.waves-effect.black {
+		position: absolute;
+		bottom: 16px;
+	}
+}
+
+div.card a.waves-effect.black {
+	margin-top: 16px;
 }
 
 div.card div.card-content span.card-title a.waves-effect.waves-dark.red.right i {
