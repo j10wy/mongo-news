@@ -5,10 +5,11 @@ const colors = require('colors');
 
 function getGameSpotNews(callback) {
 	var options = {
-		headers: {'user-agent': 'node.js'}
+		url:'https://www.gamespot.com/news', 
+		headers: {'user-agent': 'request'}
 	  }
 
-	request('https://www.gamespot.com/news', options, function (error, response, body) {
+	request(options, function (error, response, body) {
 
 		//Print the error if one occurred
 		if (error) {
