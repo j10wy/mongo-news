@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const Article = require('./models/article');
 const gs = require('./controllers/gamespot-scraper');
 const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/gamespot';
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -42,5 +43,5 @@ db.on("error", function (error) {
 
 db.on("open", function () {
 	console.log("Connected to MongoDB");
-	app.listen(3000);
+	app.listen(PORT);
 });
