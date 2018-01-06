@@ -29,14 +29,16 @@ function getGameSpotNews(callback) {
 					img = $(element).find('div.media-img.imgflare--river img').attr('src'),
 					title = $(element).find('h3.media-title').text(),
 					text = $(element).find('p.media-deck').text(),
-					date = $(element).find('footer time.media-date').attr('datetime');
+					date = $(element).find('footer time.media-date').attr('datetime'),
+					url = $(element).find('a.js-event-tracking').attr('href')
 
 				var newWritcle = new Article({
 					id: id,
 					img: img,
 					title: title,
 					date: date,
-					text: text
+					text: text,
+					url: url
 				});
 
 				Article.find({

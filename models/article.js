@@ -20,6 +20,10 @@ let articleSchema = mongoose.Schema({
 	text: {
 		type: String,
 		required: true
+	},
+	url:{
+		type: String,
+		required: true
 	}
 });
 

@@ -9,14 +9,4 @@
 * [Mongoose Documentation](http://mongoosejs.com/docs/api.html)
 * [Cheerio Documentation](https://github.com/cheeriojs/cheerio)
 
-#### Heroku
-
-```bash
-# HEROKU SETUP
-
-heroku login
-heroku git:remote -a mongonewsscaper
-git push heroku master
-```
-
 
