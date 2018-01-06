@@ -21,7 +21,9 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
-	Article.find({}, (error, articles) => {
+	Article.find({}).sort({
+		date: -1
+	}).exec((err, articles) => {
 		res.render('home', {
 			articles: articles
 		});
