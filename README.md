@@ -2,6 +2,9 @@
 
 [https://mongonewsscaper.herokuapp.com/](https://mongonewsscaper.herokuapp.com/)
 
+### Working around 403 errors
+https://stackoverflow.com/questions/30508971/request-node-module-not-giving-html
+
 ### Resources
 
 * [Environment variables on Heroku](https://devcenter.heroku.com/articles/config-vars)

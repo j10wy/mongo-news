@@ -4,8 +4,11 @@ const request = require('request');
 const colors = require('colors');
 
 function getGameSpotNews(callback) {
+	var options = {
+		headers: {'user-agent': 'node.js'}
+	  }
 
-	request('https://www.gamespot.com/news', function (error, response, body) {
+	request('https://www.gamespot.com/news', options, function (error, response, body) {
 
 		//Print the error if one occurred
 		if (error) {
@@ -14,7 +17,7 @@ function getGameSpotNews(callback) {
 
 		} else {
 			// Print the response status code if a response was received
-			console.log('statusCode:'.green, response);
+			console.log('statusCode:'.green, response.statusCode);
 
 			// Store the response body in the htmlBody variable and load in Cheerio
 			const htmlBody = body;
