@@ -25,7 +25,6 @@ function getGameSpotNews() {
 			// Create a reference to the article links in the latest news section
 			const articles = $('article.media.media-article');
 
-			// Loop through each article - @todo - Update comment desdcription
 			articles.each((index, element) => {
 
 				let id = $(element).find('a.js-event-tracking').data('event-guid'),
@@ -34,20 +33,33 @@ function getGameSpotNews() {
 					text = $(element).find('p.media-deck').text(),
 					date = $(element).find('footer time.media-date').attr('datetime');
 
-					var newWritcle = new Article({
-						id: id,
-						img: img,
-						title: title,
-						date: date,
-						text: text
-					});
-					newWritcle.save().then(function (savedArticle) {
-						console.log("New article saved to database", savedArticle);
-					});
+				var newWritcle = new Article({
+					id: id,
+					img: img,
+					title: title,
+					date: date,
+					text: text
+				});
+
+				Article.find({
+					id: id
+				}, function (error, foundId) {
+
+					if (error) {
+						console.log(error);
+					} 
 					
+					if (foundId.length === 0) {
+						newWritcle.save().then(function (savedArticle) {
+							console.log("New article saved to database", savedArticle);
+						});
+					}
+				});
+
 				return true;
 			});
 		}
+
 	});
 }
 

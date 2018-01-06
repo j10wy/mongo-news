@@ -27,6 +27,12 @@ app.get('/', function (req, res) {
 
 });
 
+app.get('/scrape', function (req, res) {
+
+	gs();
+	res.send("done")
+});
+
 mongoose.connect('mongodb://localhost/gamespot');
 let db = mongoose.connection;
 

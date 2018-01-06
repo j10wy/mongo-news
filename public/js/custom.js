@@ -15,7 +15,10 @@ $(document).ready(function () {
 	});
 
 	scrapeButton.on("click", function name(event) {
-		Materialize.toast('Fetching new stories!', 3000) 
+		Materialize.toast('Fetching new stories!', 3000) ;
+		$.get('/scrape', function name(results) {
+			console.log(results);
+		})
 	});
 
 });
