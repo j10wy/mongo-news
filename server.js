@@ -1,8 +1,20 @@
-var express = require('express');
-var exphbs = require('express-handlebars');
-var bodyParser = require('body-parser');
+const express = require('express');
+const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
-var app = express();
+mongoose.connect('mongodb://localhost/gamespot');
+let db = mongoose.connection;
+
+db.on("error", function(error){
+	console.log(error);
+});
+
+db.on("open", function(error){
+	console.log("Connected to MongoDB");
+});
+
+const app = express();
 
 app.engine('.hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }));
 app.set('view engine', '.hbs');
