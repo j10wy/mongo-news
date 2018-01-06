@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Article = require('./models/article');
 const gs = require('./controllers/gamespot-scraper');
+const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/gamespot';
 
 const app = express();
 
@@ -28,12 +29,11 @@ app.get('/', function (req, res) {
 });
 
 app.get('/scrape', function (req, res) {
-
 	gs();
-	res.send("done")
+	res.send();
 });
 
-mongoose.connect('mongodb://localhost/gamespot');
+mongoose.connect(dbURL);
 let db = mongoose.connection;
 
 db.on("error", function (error) {

@@ -3,18 +3,16 @@ const cheerio = require('cheerio');
 const request = require('request');
 const colors = require('colors');
 
-function getGameSpotNews() {
+function getGameSpotNews(callback) {
 
 	request('https://www.gamespot.com/news', function (error, response, body) {
 
 		//Print the error if one occurred
 		if (error) {
-
 			console.log('ERROR!:'.underline.red);
 			console.log(error);
 
 		} else {
-
 			// Print the response status code if a response was received
 			console.log('statusCode:'.green, response.statusCode);
 
@@ -47,19 +45,18 @@ function getGameSpotNews() {
 
 					if (error) {
 						console.log(error);
-					} 
-					
+					}
+
 					if (foundId.length === 0) {
 						newWritcle.save().then(function (savedArticle) {
-							console.log("New article saved to database", savedArticle);
+							console.log("New article saved to database");
 						});
 					}
 				});
-
 				return true;
 			});
 		}
-
+		
 	});
 }
 
