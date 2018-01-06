@@ -1,5 +1,11 @@
 /* fix spacing issue for card comment icon  */
 
+@media screen and (min-width: 601px) {
+	div.card {
+		min-height: 530px;
+	}
+}
+
 div.card div.card-content span.card-title a.waves-effect.waves-dark.red.right i {
 	margin: 13px 1px;
 }
@@ -29,6 +35,7 @@ ul.tabs .tab a {
 	color: #263238;
 }
 
-.tabs .tab a:hover, .tabs .tab a.active {
+.tabs .tab a:hover,
+.tabs .tab a.active {
 	color: black;
 }

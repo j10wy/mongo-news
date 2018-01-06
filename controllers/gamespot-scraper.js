@@ -1,4 +1,4 @@
-const article = require("../models/article");
+const Article = require("../models/article");
 const cheerio = require('cheerio');
 const request = require('request');
 const colors = require('colors');
@@ -33,9 +33,18 @@ function getGameSpotNews() {
 					title = $(element).find('h3.media-title').text(),
 					text = $(element).find('p.media-deck').text(),
 					date = $(element).find('footer time.media-date').attr('datetime');
-				if (index === 0) {
-					console.log(index, id, img, title, text, date);
-				}
+
+					var newWritcle = new Article({
+						id: id,
+						img: img,
+						title: title,
+						date: date,
+						text: text
+					});
+					newWritcle.save().then(function (savedArticle) {
+						console.log("New article saved to database", savedArticle);
+					});
+					
 				return true;
 			});
 		}
