@@ -14,7 +14,7 @@ function getGameSpotNews(callback) {
 
 		} else {
 			// Print the response status code if a response was received
-			console.log('statusCode:'.green, response.statusCode);
+			console.log('statusCode:'.green, response);
 
 			// Store the response body in the htmlBody variable and load in Cheerio
 			const htmlBody = body;
