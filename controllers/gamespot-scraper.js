@@ -36,7 +36,7 @@ function getGameSpotNews(callback) {
 					date = $(element).find('footer time.media-date').attr('datetime'),
 					url = $(element).find('a.js-event-tracking').attr('href')
 
-				var newWritcle = new Article({
+				var newAritcle = new Article({
 					id: id,
 					img: img,
 					title: title,
@@ -54,7 +54,7 @@ function getGameSpotNews(callback) {
 					}
 
 					if (foundId.length === 0) {
-						newWritcle.save().then(function (savedArticle) {
+						newAritcle.save().then(function (savedArticle) {
 							console.log("New article saved to database");
 						});
 					}
