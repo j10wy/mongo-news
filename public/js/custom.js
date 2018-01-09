@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+	var username = null;
+
 	// Initialize all modals.
 	$('.modal').modal();
 
@@ -19,6 +21,28 @@ $(document).ready(function () {
 		$.get('/scrape', function name(results) {
 			console.log(results);
 		})
+	});
+
+	$(".comments").on("click", function(){
+		var article_id = $(this).data("article-id");
+		$("#comments").data("article-id",article_id);
+	});
+
+	$("button[type='submit']").on("click", function (event) {
+		event.preventDefault();
+		var name = $("#name").val(),
+		comment = $("textarea#comment").val(),
+		articleid = $("#comments").data("article-id");
+		
+		$.post('/insertComment', {
+			name: name,
+			comment: comment,
+			articleid: articleid
+		}).done(function(data){
+			Materialize.toast('Comment posted!', 2000) ;
+			$("#name").val("");
+			$("textarea#comment").val("");
+		});
 	});
 
 });

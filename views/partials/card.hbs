@@ -1,8 +1,8 @@
 <div class="col s12 m6">
-	<div class="card" data-article-id="{{id}}">
+	<div class="card">
 			<div class="card-image">
 				<img class="activator" src="{{img}}">
-				<a class="btn modal-trigger btn-floating halfway-fab waves-effect waves-light red darken-3" href="#comments">
+				<a data-article-id="{{id}}" class="btn modal-trigger btn-floating halfway-fab waves-effect waves-light red darken-3 comments" href="#comments">
 					<i class="material-icons">insert_comment</i>
 				</a>
 			</div>
@@ -11,7 +11,7 @@
 					{{title}}
 				</span>
 				<p>{{text}}</p>
-				<a href="https://www.gamespot.com{{url}}" class="waves-effect waves-light btn black">
+				<a href="https://www.gamespot.com{{url}}" class="waves-effect waves-light btn black" target="_blank">
 					<i class="material-icons left">open_in_browser</i>OPEN</a>
 			</div>
 		</div>

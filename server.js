@@ -1,10 +1,9 @@
-require('dotenv').config();
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Article = require('./models/article');
-const addComment = require('./controllers/add-comment');
+const addComment = require('./controllers/comments');
 const gs = require('./controllers/gamespot-scraper');
 const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/gamespot';
 const PORT = process.env.PORT || 3000;
@@ -34,7 +33,8 @@ app.get('/', function (req, res) {
 });
 
 app.post('/insertComment', function (req, res) {
-	addComment("11-1111", "jeffreylowy", "blah blah blah", function(comment){
+	var body = req.body;
+	addComment(body.articleid, body.name, body.comment, function(comment){
 		res.send(comment);
 	});
 });
