@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+// The Comment Schema is similar to Article's
+// The date is captured as a type=Date and Date.now when saved to the database
 let commentSchema = mongoose.Schema({
 	articleId: {
 		type: String,
