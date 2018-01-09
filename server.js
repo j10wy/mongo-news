@@ -2,12 +2,9 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const Article = require('./models/article');
-const addComment = require('./controllers/comments');
-const gs = require('./controllers/gamespot-scraper');
+const routes = require('./routes');
 const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/gamespot';
 const PORT = process.env.PORT || 3000;
-
 const app = express();
 
 app.engine('.hbs', exphbs({
@@ -20,29 +17,7 @@ app.use(bodyParser.urlencoded({
 	extended: false
 }));
 app.use(bodyParser.json());
-
-app.get('/', function (req, res) {
-	Article.find({}).sort({
-		date: -1
-	}).exec((err, articles) => {
-		res.render('home', {
-			articles: articles
-		});
-	});
-
-});
-
-app.post('/insertComment', function (req, res) {
-	var body = req.body;
-	addComment(body.articleid, body.name, body.comment, function(comment){
-		res.send(comment);
-	});
-});
-
-app.get('/scrape', function (req, res) {
-	gs();
-	res.send();
-});
+app.use("/", routes);
 
 mongoose.connect(dbURL);
 let db = mongoose.connection;
