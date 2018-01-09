@@ -42,6 +42,7 @@ $(document).ready(function () {
 			Materialize.toast('Comment posted!', 2000) ;
 			$("#name").val("");
 			$("textarea#comment").val("");
+			$("a[href='#comments-tab']").trigger("click");
 		});
 	});
 
