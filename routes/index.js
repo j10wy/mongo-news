@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Article = require('../models/article');
-const addComment = require('../controllers/comments');
+const comments = require('../controllers/comments');
 const gs = require('../controllers/gamespot-scraper');
 
 // Main page:
@@ -23,7 +23,7 @@ router.get('/', function (req, res) {
 // The post request is tied to the comment form and submitted via jQuery's $.post in the public/js/custom.js file
 router.post('/insert-comment', function (req, res) {
 	var body = req.body;
-	addComment(body.articleid, body.name, body.comment, function(comment){
+	comments.postComment(body.articleid, body.name, body.comment, function(comment){
 		res.send(comment);
 	});
 });
@@ -35,6 +35,16 @@ router.get('/scrape', function (req, res) {
 	// The gs function takes a callback, which will call res.end() once the scrapper has completed inserting new articles into the database.
 	gs(function(){
 		res.end();
+	});
+	
+});
+
+// Get comments route
+// Gets the comments for the article id specified.
+router.get('/get-comments/:articleId', function(req, res) {
+	let articleId = req.params.articleId;
+	comments.getComments(articleId, function(commentData) {
+		res.json(commentData);
 	});
 	
 });
