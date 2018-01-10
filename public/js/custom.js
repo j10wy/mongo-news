@@ -72,6 +72,11 @@ $(document).ready(function () {
 			if (username === null) {
 				username = name;
 			}
+			$("ul.collection").append(`<li class="collection-item avatar">
+				<i class="material-icons circle">face</i>
+				<span class="title">${name}</span>
+				<p class="comment-body">${comment}</p>
+			</li>`);
 		});
 	});
 
